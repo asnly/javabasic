@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+
+	
+
+	<!-- load driver jar, must config local maven repo dir -->
+	<classPathEntry
+		location="/Users/caolinchao/.m2/repository/mysql/mysql-connector-java/5.1.19/mysql-connector-java-5.1.19.jar" />
+
+	<context id="Tuna" targetRuntime="MyBatis3">
+		<commentGenerator>
+			<property name="suppressDate" value="true" />
+			<!-- remove comments -->
+			<property name="suppressAllComments" value="true" />
+		</commentGenerator>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://139.196.222.160:3306/pg?user=root&amp;password=clc123456&amp;useUnicode=true&amp;characterEncoding=UTF-8" userId="root"
+			password="clc123456" />
+
+		<javaTypeResolver>
+			<property name="forceBigDecimals" value="false" />
+		</javaTypeResolver>
+
+		<!-- gem entity -->
+		<javaModelGenerator targetPackage="com.shuodao.paigua.db.entity"
+			targetProject="mhys/src/main/java">
+			<property name="enableSubPackages" value="true" />
+			<property name="trimStrings" value="false" />
+		</javaModelGenerator>
+
+		<!-- gem xml -->
+		<sqlMapGenerator targetPackage="mapper"
+			targetProject="mhys/src/main/resources">
+			<property name="enableSubPackages" value="true" />
+		</sqlMapGenerator>
+
+		<!-- gem mapper -->
+		<javaClientGenerator type="XMLMAPPER"
+			targetPackage="com.shuodao.paigua.db.mapper" targetProject="mhys/src/main/java">
+			<property name="enableSubPackages" value="true" />
+		</javaClientGenerator>
+		
+		
+		<table schema="pg" tableName="inputval" domainObjectName="inputval" 
+			enableCountByExample="false" enableSelectByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+			<generatedKey column="id" sqlStatement="JDBC"/>
+		</table>
+		<table schema="pg" tableName="user" domainObjectName="user" 
+			enableCountByExample="false" enableSelectByExample="false"
+			enableUpdateByExample="false" enableDeleteByExample="false">
+			<generatedKey column="id" sqlStatement="JDBC"/>
+		</table>
+	</context>
+</generatorConfiguration>
